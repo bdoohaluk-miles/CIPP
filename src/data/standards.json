@@ -1083,6 +1083,48 @@
     "helpText": "This creates a Anti-Phishing policy that automatically enables Mailbox Intelligence and spoofing, optional switches for Mailtips.",
     "addedComponent": [
       {
+        "type": "boolean",
+        "label": "Enable spoof intelligence",
+        "name": "standards.AntiPhishPolicy.PhishThresholdLevel",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "label": "Honor DMARC record policy when the message is detected as spoof",
+        "name": "standards.AntiPhishPolicy.HonorDmarcPolicy",
+        "default": true
+      },
+      {
+        "type": "Select",
+        "label": "If the message is detected as spoof and DMARC Policy is set as p=quarantine",
+        "name": "standards.AntiPhishPolicy.DmarcQuarantineAction",
+        "values": [
+          {
+            "label": "Quarantine the message",
+            "value": "Quarantine"
+          },
+          {
+            "label": "Move to Junk Folder",
+            "value": "MoveToJmf"
+          }
+        ]
+      },
+      {
+        "type": "Select",
+        "label": "If the message is detected as spoof and DMARC Policy is set as p=reject",
+        "name": "standards.AntiPhishPolicy.DmarcRejectAction",
+        "values": [
+          {
+            "label": "Reject the message",
+            "value": "Reject"
+          },
+          {
+            "label": "Quarantine the message",
+            "value": "Quarantine"
+          }
+        ]
+      },
+      {
         "type": "number",
         "label": "Phishing email threshold. (Default 1)",
         "name": "standards.AntiPhishPolicy.PhishThresholdLevel",
