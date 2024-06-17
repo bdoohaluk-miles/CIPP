@@ -1085,7 +1085,7 @@
       {
         "type": "boolean",
         "label": "Enable spoof intelligence",
-        "name": "standards.AntiPhishPolicy.PhishThresholdLevel",
+        "name": "standards.AntiPhishPolicy.EnableSpoofIntelligence",
         "default": true
       },
       {
@@ -1125,6 +1125,58 @@
         ]
       },
       {
+        "type": "Select",
+        "label": "If the message is detected as spoof by spoof intelligence",
+        "name": "standards.AntiPhishPolicy.AuthenticationFailAction",
+        "values": [
+          {
+            "label": "Move to Junk Folder",
+            "value": "MoveToJmf"
+          },
+          {
+            "label": "Quarantine the message",
+            "value": "Quarantine"
+          }
+        ]
+      },
+      {
+        "type": "Select",
+        "label": "Quarantine policy for Spoof",
+        "name": "standards.AntiPhishPolicy.SpoofQuarantineTag",
+        "values": [
+          {
+            "label": "AdminOnlyAccessPolicy",
+            "value": "AdminOnlyAccessPolicy"
+          },
+          {
+            "label": "DefaultFullAccessPolicy",
+            "value": "DefaultFullAccessPolicy"
+          },
+          {
+            "label": "DefaultFullAccessWithNotificationPolicy",
+            "value": "DefaultFullAccessWithNotificationPolicy"
+          }
+        ]
+      },
+      {
+        "type": "boolean",
+        "label": "Show first contact safety tip",
+        "name": "standards.AntiPhishPolicy.EnableFirstContactSafetyTips",
+        "default": false
+      },
+      {
+        "type": "boolean",
+        "label": "Show (?) for unauthenticated senders for spoof",
+        "name": "standards.AntiPhishPolicy.EnableUnauthenticatedSender",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "label": "Show 'via' tag",
+        "name": "standards.AntiPhishPolicy.EnableViaTag",
+        "default": true
+      },
+      {
         "type": "number",
         "label": "Phishing email threshold. (Default 1)",
         "name": "standards.AntiPhishPolicy.PhishThresholdLevel",
@@ -1132,27 +1184,21 @@
       },
       {
         "type": "boolean",
-        "label": "Show first contact safety tip",
-        "name": "standards.AntiPhishPolicy.EnableFirstContactSafetyTips",
+        "label": "Include domains I own",
+        "name": "standards.AntiPhishPolicy.EnableOrganizationDomainsProtection",
+        "default": false
+      },
+      {
+        "type": "boolean",
+        "label": "Enable mailbox intelligence",
+        "name": "standards.AntiPhishPolicy.EnableMailboxIntelligence",
         "default": true
       },
       {
         "type": "boolean",
-        "label": "Show user impersonation safety tip",
-        "name": "standards.AntiPhishPolicy.EnableSimilarUsersSafetyTips",
-        "default": true
-      },
-      {
-        "type": "boolean",
-        "label": "Show domain impersonation safety tip",
-        "name": "standards.AntiPhishPolicy.EnableSimilarDomainsSafetyTips",
-        "default": true
-      },
-      {
-        "type": "boolean",
-        "label": "Show user impersonation unusual characters safety tip",
-        "name": "standards.AntiPhishPolicy.EnableUnusualCharactersSafetyTips",
-        "default": true
+        "label": "Enable intelligence for impersonation protection",
+        "name": "standards.AntiPhishPolicy.EnableMailboxIntelligenceProtection",
+        "default": false
       },
       {
         "type": "Select",
@@ -1170,6 +1216,25 @@
           {
             "label": "Quarantine the message",
             "value": "Quarantine"
+          }
+        ]
+      },
+      {
+        "type": "Select",
+        "label": "Quarantine policy for user impersonation",
+        "name": "standards.AntiPhishPolicy.TargetedUserQuarantineTag",
+        "values": [
+          {
+            "label": "AdminOnlyAccessPolicy",
+            "value": "AdminOnlyAccessPolicy"
+          },
+          {
+            "label": "DefaultFullAccessPolicy",
+            "value": "DefaultFullAccessPolicy"
+          },
+          {
+            "label": "DefaultFullAccessWithNotificationPolicy",
+            "value": "DefaultFullAccessWithNotificationPolicy"
           }
         ]
       },
@@ -1194,6 +1259,25 @@
       },
       {
         "type": "Select",
+        "label": "Quarantine policy for domain impersonation",
+        "name": "standards.AntiPhishPolicy.TargetedDomainQuarantineTag",
+        "values": [
+          {
+            "label": "AdminOnlyAccessPolicy",
+            "value": "AdminOnlyAccessPolicy"
+          },
+          {
+            "label": "DefaultFullAccessPolicy",
+            "value": "DefaultFullAccessPolicy"
+          },
+          {
+            "label": "DefaultFullAccessWithNotificationPolicy",
+            "value": "DefaultFullAccessWithNotificationPolicy"
+          }
+        ]
+      },
+      {
+        "type": "Select",
         "label": "If Mailbox Intelligence detects an impersonated user",
         "name": "standards.AntiPhishPolicy.MailboxIntelligenceProtectionAction",
         "values": [
@@ -1213,7 +1297,7 @@
       },
       {
         "type": "Select",
-        "label": "Apply quarantine policy",
+        "label": "Quarantine policy for mailbox intelligence impersonation",
         "name": "standards.AntiPhishPolicy.MailboxIntelligenceQuarantineTag",
         "values": [
           {
@@ -1229,6 +1313,24 @@
             "value": "DefaultFullAccessWithNotificationPolicy"
           }
         ]
+      },
+      {
+        "type": "boolean",
+        "label": "Show user impersonation safety tip",
+        "name": "standards.AntiPhishPolicy.EnableSimilarUsersSafetyTips",
+        "default": false
+      },
+      {
+        "type": "boolean",
+        "label": "Show domain impersonation safety tip",
+        "name": "standards.AntiPhishPolicy.EnableSimilarDomainsSafetyTips",
+        "default": false
+      },
+      {
+        "type": "boolean",
+        "label": "Show user impersonation unusual characters safety tip",
+        "name": "standards.AntiPhishPolicy.EnableUnusualCharactersSafetyTips",
+        "default": false
       }
     ],
     "label": "Default Anti-Phishing Policy",
